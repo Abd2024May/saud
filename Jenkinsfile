@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from the repository
-                git 'https://github.com/Abd2024May/saud.git'
-            }
-        }
         stage('Build') {
             steps {
                 // Build the code
@@ -29,7 +23,7 @@ pipeline {
         stage('Package') {
             steps {
                 // Package the code as a container
-                sh 'docker build -t your_image_name .'
+                sh 'docker build -t abedelhafez/tmdb-devops-challenge .'
             }
         }
     }
