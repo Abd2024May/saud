@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from the repository
-                git 'https://github.com/salawadhi/tmdb-devops-challenge.git'
+                git 'https://github.com/Abd2024May/saud.git'
             }
         }
         stage('Build') {
