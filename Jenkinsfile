@@ -1,8 +1,5 @@
 pipeline {
-    agent{
-        docker {
-            image 'node:lts-slim'
-        }
+    agent any
     stages {
         stage('Build') {
             steps {
