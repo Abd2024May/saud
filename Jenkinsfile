@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('testNPM') {
+            steps {
+                // Build the code
+                sh 'npm --version'
+            }
+        }
         stage('Build') {
             steps {
                 // Build the code
