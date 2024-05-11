@@ -8,7 +8,7 @@ pipeline {
             steps {
                 sh 'which npm'
                 // Build the code
-                sh "C:\Program Files\nodejs\npm install"
+                sh "C:\\Program Files\\nodejs\\npm install"
             }
         }
         stage('Lint') {
