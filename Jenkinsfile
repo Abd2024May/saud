@@ -6,10 +6,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               script{
+                sh 'which npm'
                 // Build the code
-                sh 'npm install'
-               }
+                sh "npm install"
             }
         }
         stage('Lint') {
