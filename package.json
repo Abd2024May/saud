@@ -23,7 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "react-scripts eslint",
-    "test": "react-scripts test --testMatch **/src/components/*.{js,jsx,ts,tsx} --detectOpenHandles --transformIgnorePatterns \"node_modules/(?!axios)/\"",
+    "test": "react-scripts test --testMatch **/src/**/*.{js,jsx,ts,tsx} --detectOpenHandles --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject",
     "dev": "vite --host 0.0.0.0"
   },
