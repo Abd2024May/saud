@@ -22,12 +22,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-            try {
+             catchError (buildResult: 'FAILURE', stageResult: 'FAILURE') {
                 // Run tests
                 sh 'CI=true npm test'
-                }
-            catch (err) {
-               echo "something failed"
                 }
             }
         }
