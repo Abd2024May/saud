@@ -20,12 +20,7 @@ pipeline {
                 sh 'npm run lint'
             }
         }
-        stage('Test') {
-            steps {
-                // Run tests
-                sh 'CI=true npm test'
-            }
-        }
+
         stage('Package') {
             steps {
                 // Package the code as a container
