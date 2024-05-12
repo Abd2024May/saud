@@ -23,7 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "react-scripts eslint",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll --testMatch **/src/**/*.test.js",
     "eject": "react-scripts eject",
     "dev": "vite --host 0.0.0.0"
   },
