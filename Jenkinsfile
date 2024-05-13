@@ -31,19 +31,16 @@ pipeline {
                 // build
                 sh 'npm run build'
                 }
-              }
-           }
+            }
         }
         stage('Build image') {
             steps{
                 script {
                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                    }
-            }
+             }
+          }
         }
-
-    }
-
+     }
     post {
         success {
             echo 'CI pipeline passed!'
