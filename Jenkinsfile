@@ -29,10 +29,20 @@ pipeline {
                 script {
                 catchError (buildResult: 'FAILURE', stageResult: 'FAILURE') {
                 // Run tests
-                sh 'CI=true npm test'
+                sh 'npm test'
                 }
               }
            }
         }
+        stage('Build image') {
+            steps{
+                script {
+                sh 'pwd'
+                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    }
+            }
+        }
+
+
     }
 }
