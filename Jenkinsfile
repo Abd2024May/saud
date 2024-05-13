@@ -1,11 +1,55 @@
 pipeline {
+    environment {
+       registry = "abedelhafez/tmdb-devops-challenge"
+       registryCredential = 'docker'
+       dockerImage = ''
+    }
     agent any
     stages {
-        stage('Package') {
+        stage('Build') {
             steps {
-                // Package the code as a container
-                sh 'docker build -t abedelhafez/tmdb-devops-challenge .'
+                script {
+                // Build the code
+                sh 'npm install'
+                }
             }
         }
+        stage('Lint') {
+            steps {
+                script {
+                // Lint the code
+                sh 'npm run lint'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                // Run tests
+                sh 'npm test'
+                }
+            }
+        }
+        stage('Build image') {
+            steps{
+                script {
+                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    }
+            }
+        }
+        stage('Push image') {
+             steps{
+                 script {
+                 docker.withRegistry( '', registryCredential ) {
+                     dockerImage.push()
+                    }
+                }
+             }
+        }
+        stage('Cleaning up') {
+             steps{
+                sh "docker rmi $registry:$BUILD_NUMBER"
+                }
+         }
     }
 }
