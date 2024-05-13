@@ -30,6 +30,7 @@ pipeline {
                 // Run tests
                 sh 'CI=true npm test'
                 }
+              }
             }
         }
         stage('Build image') {
