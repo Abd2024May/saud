@@ -3,11 +3,9 @@ pipeline {
        registry = "abedelhafez/tmdb-devops-challenge"
        registryCredential = 'docker'
        dockerImage = ''
+       CI = 'true'
     }
     tools {nodejs "NodeJS"}
-     environment {
-            CI = 'true'
-        }
     agent any
     stages {
         stage('testNPM') {
