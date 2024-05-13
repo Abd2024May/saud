@@ -11,6 +11,7 @@ pipeline {
         stage('testNPM') {
             steps {
                 // Build the code
+                sh 'pwd'
                 sh 'node --version'
                 sh 'npm --version'
                 sh 'npm config ls'
