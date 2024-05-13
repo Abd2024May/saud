@@ -15,6 +15,9 @@ pipeline {
                 sh 'node --version'
                 sh 'npm --version'
                 sh 'npm config ls'
+                sh 'npm prune'
+                sh 'npm install'
+                sh 'npm test'
             }
         }
     }
