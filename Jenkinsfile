@@ -37,17 +37,6 @@ pipeline {
               }
            }
         }
-        stage('start') {
-            steps {
-                script {
-                catchError (buildResult: 'FAILURE', stageResult: 'FAILURE') {
-                sh 'pwd'
-                // Run tests
-                sh 'npm start'
-                }
-              }
-           }
-        }
         stage('Build image') {
             steps{
                 script {
