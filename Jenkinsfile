@@ -4,7 +4,7 @@ pipeline {
        registryCredential = 'docker'
        dockerImage = ''
     }
-    tools {nodejs "NodeJS"}
+    tools {nodejs "InstalledNodeJS"}
     agent any
     stages {
         stage('testNPM') {
