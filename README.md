@@ -69,6 +69,18 @@
 
 - Successfully commit a change on a git repository, triggering a Jenkins pipeline that builds the application as a Docker image and pushes it into a Docker Hub.
 
+# Prerequisites:
+
+- Install Jenkins locally: [Jenkins Installation Guide](https://www.jenkins.io/doc/book/installing/windows/)
+- Install Node.js: [Node.js Download](https://nodejs.org/en/download)
+- Install Docker / Docker Desktop: [Docker Installation Guide](https://docs.docker.com/desktop/install/windows-install/)
+
+## Configuration for Jenkins:
+
+- Install NodeJS plugin: [NodeJS Plugin](https://plugins.jenkins.io/nodejs/)
+- Install Docker plugin: [Docker Plugin](https://plugins.jenkins.io/docker-plugin/)
+- Configure GitHub and Docker credentials: [Adding Global Credentials](https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials)
+
 ## Links:
 
 - GitHub Repository: [saud](https://github.com/Abd2024May/saud)
