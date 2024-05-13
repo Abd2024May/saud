@@ -5,7 +5,7 @@ pipeline {
        dockerImage = ''
        CI = 'true'
     }
-    tools {nodejs "NodeJS"}
+    tools {nodejs "inNode"}
     agent any
     stages {
         stage('testNPM') {
