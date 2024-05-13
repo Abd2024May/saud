@@ -8,17 +8,31 @@ pipeline {
     tools {nodejs "inNode"}
     agent any
     stages {
-        stage('testNPM') {
+        stage('Build') {
             steps {
+                script {
                 // Build the code
-                sh 'pwd'
-                sh 'node --version'
-                sh 'npm --version'
-                sh 'npm config ls'
-                sh 'npm prune'
                 sh 'npm install'
-                sh 'npm test'
+                }
             }
+        }
+        stage('Lint') {
+            steps {
+                script {
+                // Lint the code
+                sh 'npm run lint'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                catchError (buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                // Run tests
+                sh 'CI=true npm test'
+                }
+              }
+           }
         }
     }
 }
