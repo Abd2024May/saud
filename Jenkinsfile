@@ -11,6 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
+                sh 'pwd'
                 // Build the code
                 sh 'npm install'
                 }
@@ -19,6 +20,7 @@ pipeline {
         stage('Lint') {
             steps {
                 script {
+                sh 'pwd'
                 // Lint the code
                 sh 'npm run lint'
                 }
@@ -28,6 +30,7 @@ pipeline {
             steps {
                 script {
                 catchError (buildResult: 'FAILURE', stageResult: 'FAILURE') {
+                sh 'pwd'
                 // Run tests
                 sh 'npm test'
                 }
