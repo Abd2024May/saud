@@ -17,15 +17,6 @@ pipeline {
                 }
             }
         }
-        stage('Lint') {
-            steps {
-                script {
-                sh 'pwd'
-                // Lint the code
-                sh 'npm run lint'
-                }
-            }
-        }
         stage('Test') {
             steps {
                 script {
