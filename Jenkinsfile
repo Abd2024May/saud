@@ -37,14 +37,18 @@ pipeline {
               }
            }
         }
-        stage('Build image') {
-            steps{
+        stage('start') {
+            steps {
                 script {
+                catchError (buildResult: 'FAILURE', stageResult: 'FAILURE') {
                 sh 'pwd'
-                dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                    }
-            }
+                // Run tests
+                sh 'npm start'
+                }
+              }
+           }
         }
+
 
 
     }
