@@ -7,7 +7,7 @@ pipeline {
     tools {nodejs "inNode"}
     agent any
     stages {
-        stage('Dependencies') {
+        stage('Install Dependencies') {
             steps {
                 script {
                 // Install dependencies
@@ -25,20 +25,22 @@ pipeline {
               }
            }
         }
-        stage('Build') {
-            steps {
-                script {
-                // build
-                sh 'npm run build'
-                }
-            }
-        }
-        stage('Build image') {
+        stage('Build Docker image') {
             steps{
                 script {
                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
-             }
-          }
+              }
+           }
+        }
+
+        stage('Push Docker image') {
+             steps{
+                 script {
+                 docker.withRegistry( '', registryCredential ) {
+                     dockerImage.push()
+                    }
+               }
+           }
         }
      }
     post {
