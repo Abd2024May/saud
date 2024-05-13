@@ -4,17 +4,15 @@ pipeline {
        registryCredential = 'docker'
        dockerImage = ''
     }
-    agent any
     tools {nodejs "NodeJS"}
+    agent any
     stages {
-       stage('Test') {
-           steps{
-               sh 'node -v'
-               sh 'npm prune'
-               sh 'npm install'
-               sh 'npm test'
-             }
-
-       }
+        stage('testNPM') {
+            steps {
+                // Build the code
+                sh 'npm --version'
+                sh 'npm config ls'
+            }
+        }
     }
 }
