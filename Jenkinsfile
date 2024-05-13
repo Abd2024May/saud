@@ -3,16 +3,14 @@ pipeline {
        registry = "abedelhafez/tmdb-devops-challenge"
        registryCredential = 'docker'
        dockerImage = ''
-       CI = 'true'
     }
     tools {nodejs "inNode"}
     agent any
     stages {
-        stage('Build') {
+        stage('Dependencies') {
             steps {
                 script {
-                sh 'pwd'
-                // Build the code
+                // Install dependencies
                 sh 'npm install'
                 }
             }
@@ -21,9 +19,17 @@ pipeline {
             steps {
                 script {
                 catchError (buildResult: 'FAILURE', stageResult: 'FAILURE') {
-                sh 'pwd'
                 // Run tests
                 sh 'npm test'
+                }
+              }
+           }
+        }
+        stage('Build') {
+            steps {
+                script {
+                // build
+                sh 'npm run build'
                 }
               }
            }
