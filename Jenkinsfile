@@ -48,8 +48,22 @@ pipeline {
               }
            }
         }
+        stage('Build image') {
+            steps{
+                script {
+                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    }
+            }
+        }
 
+    }
 
-
+    post {
+        success {
+            echo 'CI pipeline passed!'
+        }
+        failure {
+            echo 'CI pipeline failed!'
+        }
     }
 }
