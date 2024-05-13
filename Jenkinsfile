@@ -7,11 +7,12 @@ pipeline {
     agent any
     stages {
        stage('Test') {
-
-         sh 'node -v'
-         sh 'npm prune'
-         sh 'npm install'
-         sh 'npm test'
+           steps{
+               sh 'node -v'
+               sh 'npm prune'
+               sh 'npm install'
+               sh 'npm test'
+             }
 
        }
         stage('Build image') {
