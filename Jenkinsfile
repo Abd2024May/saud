@@ -26,8 +26,9 @@ pipeline {
         stage('Test') {
             steps {
                 script {
+                catchError (buildResult: 'FAILURE', stageResult: 'FAILURE') {
                 // Run tests
-                sh 'npm test'
+                sh 'CI=true npm test'
                 }
             }
         }
