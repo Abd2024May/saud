@@ -81,6 +81,26 @@
 - Install Docker plugin: [Docker Plugin](https://plugins.jenkins.io/docker-plugin/)
 - Configure GitHub and Docker credentials: [Adding Global Credentials](https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials)
 
+## Areas of Improvement
+
+### Jenkins
+
+- Configure high availability for the application.
+- Implement access level configuration.
+
+### GitHub Repository
+
+- Set branch policies.
+- Link work items per change.
+
+### Jenkinsfile
+
+- Parameterize the pipeline inputs.
+- Set conditions for each stage.
+- Add security scanning stage.
+- Set conditions per branch.
+- Add the CD pipeline.
+
 ## Links:
 
 - GitHub Repository: [saud](https://github.com/Abd2024May/saud)
