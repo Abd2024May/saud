@@ -25,6 +25,14 @@ pipeline {
               }
            }
         }
+        stage('Lint') {
+            steps {
+                script {
+                // Lint the code
+                sh 'npm run lint'
+                }
+            }
+        }
         stage('Build Docker image') {
             steps{
                 script {
